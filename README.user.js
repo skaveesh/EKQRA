@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         EKQR Advanced
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.14
 // @description  try to take over the world!
-// @author       Samintha Kaveesh
+// @author       Saasdtha Kaveesh
 // @run-at       document-end
 // @match        http://www.elakiri.com/forum/showthread.php?*=*
 // @grant        none
