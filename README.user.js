@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Elakiri Quick Reply Advanced
+// @name         EKQR Advanced
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
