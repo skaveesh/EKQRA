@@ -1,7 +1,7 @@
 .intro {
-    color: yellow;
+    background-color: yellow;
 }
 
 .intro:hover {
-    color: red;
+    background-color: red;
 }
