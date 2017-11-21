@@ -1,7 +1,7 @@
-.intro {
+.leftAlignButton {
     background-color: yellow;
 }
 
-.intro:hover {
+.leftAlignButton:hover {
     background-color: red;
 }
