@@ -1,18 +1,18 @@
-.leftAlignButton {
+.alignButton {
     background: rgb(225, 225, 226) none repeat scroll 0% 0%; 
     color: rgb(0, 0, 0); 
     padding: 1px; 
     border: medium none;
 }
 
-.leftAlignButton:active {
+.alignButton:active {
     background: rgb(241, 246, 248) none repeat scroll 0% 0%; 
     color: rgb(0, 0, 0); 
     padding: 0px; 
     border: 1px solid rgb(49, 106, 197);
 }
 
-.leftAlignButton:hover {
+.alignButton:hover {
     background: rgb(193, 210, 238) none repeat scroll 0% 0%; 
     color: rgb(0, 0, 0); 
     padding: 0px; 
