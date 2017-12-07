@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Elakiri Quick Reply Advanced
-// @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  try to take over the world! nahh.. just quick reply
-// @author       Samintha Kaveesh
+// @namespace    https://github.com/skaveesh/EKQRA/
+// @version      1.0
+// @description  Try to take over the world! nahh.. Just quick reply
+// @author       skaveesh
 // @run-at       document-idle
 // @match        http://www.elakiri.com/forum/showthread.php?*=*
 // @grant        none
