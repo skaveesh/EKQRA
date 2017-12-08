@@ -264,6 +264,7 @@ $(document).ready(function() {
         var bumpText = document.createElement("span");
         bumpText.innerHTML = "BP";
         bumpText.setAttribute("style","color:Black; font:bold 13px Arial; cursor:default;");
+        bumpText.setAttribute("title","Bump");
         bumpText.setAttribute("width","21");
         bumpText.setAttribute("height","20");
 
