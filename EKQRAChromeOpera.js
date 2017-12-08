@@ -765,9 +765,8 @@ $(document).ready(function() {
         if(localStorage.getItem(lsKey))
             innerTextArea.value += localStorage.getItem(lsKey);
 
-
-
     })();
+
 
     function fontTypeOrSizeSelect(fontOrSize,elem) {
         return function(event) {
@@ -790,6 +789,7 @@ $(document).ready(function() {
         };
     }
 
+
     function surroundSelectionEvent(textBefore, textAfter) {
         return function(event) {
 
@@ -797,6 +797,7 @@ $(document).ready(function() {
 
         };
     }
+
 
     function modifyText(text) {
         return function(event) {
@@ -817,6 +818,7 @@ $(document).ready(function() {
 
         };
     }
+
 
     function surroundSelection(textBefore, textAfter){
         if (document.selection) {
@@ -851,7 +853,6 @@ $(document).ready(function() {
     function setEditorContents(contents) {
         $(innerTextArea).val(contents);
     }
-
 
 
     $(function(){
@@ -896,11 +897,13 @@ $(document).ready(function() {
         updateButtons(history);
     });
 
+
     function addEventListenerToColorPallet () {
         $("[id*='vB_Editor_QR_color']").click(function() {
             history.save();
         });
     }
+
 
     function savePresetButtonEvent(){
         return function(event){
@@ -913,6 +916,7 @@ $(document).ready(function() {
         };
     }
 
+
     function resetPresetButtonEvent(){
         return function(event){
             try{
@@ -922,7 +926,7 @@ $(document).ready(function() {
                 $('#modal').click();
             }catch(err){}
         };
+
     }
 
 });
-
