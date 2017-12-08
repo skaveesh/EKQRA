@@ -751,22 +751,16 @@ $(document).ready(function() {
 
             $("#modal").leanModal();
 
-            //innerDoc.querySelector("body.wysiwyg").innerHTML = "";
-            //insert user code when document load
             if(localStorage.getItem(lsKey))
                 innerDoc.querySelector("body.wysiwyg").innerHTML = localStorage.getItem(lsKey);
 
 
-
-            //position element
+            //get element at position
             innerDoc.addEventListener('click',detectWhereCaretPointerAt(), false);
 
-            //focus to innerDoc
-            //innerDoc.childNodes[0].focus();
-
-            //add arrow key caret move events
             innerDoc.onkeydown = checkKey;
         })();
+
 
         function checkKey(e) {
             autoSelectFontAndSizeAccordingToCaret();
@@ -777,6 +771,7 @@ $(document).ready(function() {
                 autoSelectFontAndSizeAccordingToCaret();
             };
         }
+
 
         function autoSelectFontAndSizeAccordingToCaret(){
             var sizeDropdownIndex = 0;
@@ -813,26 +808,13 @@ $(document).ready(function() {
 
                 }
 
-
-
-                /*if(sizeDropdownIndex == 0){
-                fontSizesSelectDropdown.selectedIndex = lastUsedSize;
-            }else{
-                fontSizesSelectDropdown.selectedIndex = sizeDropdownIndex;
-
-            }
-
-            if(fontDropdownIndex == 0){
-                fontTypesSelectDropdown.selectedIndex = fontsArray.indexOf(lastUsedFont);
-            }else{
-                fontTypesSelectDropdown.selectedIndex = fontDropdownIndex;
-            }*/
                 fontSizesSelectDropdown.selectedIndex = sizeDropdownIndex;
                 fontTypesSelectDropdown.selectedIndex = fontDropdownIndex;
             },100);
 
 
         }
+
 
         function modifyText(commandName,valueArg) {
             return function(event) {
@@ -917,6 +899,7 @@ $(document).ready(function() {
             };
         }
 
+
         function savePresetButtonEvent(){
             return function(event){
                 try{
@@ -933,6 +916,7 @@ $(document).ready(function() {
                 }catch(err){}
             };
         }
+
 
         function resetPresetButtonEvent(){
             return function(event){
