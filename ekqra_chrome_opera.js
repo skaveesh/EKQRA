@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Elakiri Quick Reply Advanced
 // @namespace    https://github.com/skaveesh/EKQRA/
-// @version      1.0
+// @version      1.1
 // @description  Try to take over the world! nahh.. Just quick reply
 // @author       skaveesh
 // @run-at       document-idle
@@ -766,6 +766,13 @@ $(document).ready(function() {
         if(localStorage.getItem(lsKey))
             innerTextArea.value += localStorage.getItem(lsKey);
 
+        //added function to focus to last position in the textarea
+        $("[id*='qr_']").click(function() {
+            var fp = innerTextArea.value.indexOf("[/");
+            innerTextArea.focus();
+            innerTextArea.selectionEnd = fp;
+        });
+        
     })();
 
 
