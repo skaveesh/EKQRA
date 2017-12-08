@@ -253,6 +253,7 @@ $(document).ready(function() {
             var bumpImg = document.createElement("span");
             bumpImg.innerHTML = "BP";
             bumpImg.setAttribute("style","color:Black; font:bold 13px Arial; cursor:default;");
+            bumpImg.setAttribute("title","Bump");
             bumpImg.setAttribute("width","21");
             bumpImg.setAttribute("height","20");
 
