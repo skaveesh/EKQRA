@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Elakiri Quick Reply Advanced
 // @namespace    https://github.com/skaveesh/EKQRA/
-// @version      1.1
+// @version      1.2
 // @description  Try to take over the world! nahh.. Just quick reply
 // @author       skaveesh
 // @run-at       document-idle
@@ -811,8 +811,18 @@ $(document).ready(function() {
         return function(event) {
 
             text = text || '';
+            var localStoragePreset = localStorage.getItem(lsKey);
 
-            if (innerTextArea.selectionStart || innerTextArea.selectionStart === 0) {
+            //saving to history before modifing
+            history.save();
+            
+            if (localStoragePreset && innerTextArea.value === localStoragePreset && innerTextArea.value.indexOf("[/") !== -1){
+                //if the textarea is not dirty and has a preset, add text inside the preset
+                var focusPosition = innerTextArea.value.indexOf("[/");
+                innerTextArea.value = innerTextArea.value.substring(0, focusPosition) + text + innerTextArea.value.substring(focusPosition, innerTextArea.value.length);
+                innerTextArea.focus();
+                innerTextArea.selectionEnd = focusPosition + text.length;
+            }else if (innerTextArea.selectionStart || innerTextArea.selectionStart === 0) {
                 var startPos = innerTextArea.selectionStart;
                 var endPos = innerTextArea.selectionEnd;
                 innerTextArea.value = innerTextArea.value.substring(0, startPos) + text + innerTextArea.value.substring(endPos, innerTextArea.value.length);
