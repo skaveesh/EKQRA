@@ -759,6 +759,14 @@ $(document).ready(function() {
                     htmlInsert = true;
                 }
             });
+            
+            //added function to focus to last position in the textarea
+            $("[id*='qr_']").click(function() {
+                if(!htmlInsert && localStorage.getItem(lsKey)){
+                    innerDoc.execCommand("insertHTML", false , localStorage.getItem(lsKey));
+                    htmlInsert = true;
+                }
+            });
 
             //get element at position
             innerDoc.addEventListener('click',detectWhereCaretPointerAt(), false);
