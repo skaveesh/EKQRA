@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Elakiri Quick Reply Advanced
 // @namespace    https://github.com/skaveesh/EKQRA/
-// @version      1.0
+// @version      1.1
 // @description  Try to take over the world! nahh.. Just quick reply
 // @author       skaveesh
 // @run-at       document-idle
@@ -753,8 +753,7 @@ $(document).ready(function() {
             $("#modal").leanModal();
 
             if(localStorage.getItem(lsKey))
-                innerDoc.querySelector("body.wysiwyg").innerHTML = localStorage.getItem(lsKey);
-
+                innerDoc.execCommand("insertHTML", false , localStorage.getItem(lsKey));
 
             //get element at position
             innerDoc.addEventListener('click',detectWhereCaretPointerAt(), false);
