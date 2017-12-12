@@ -752,8 +752,13 @@ $(document).ready(function() {
 
             $("#modal").leanModal();
 
-            if(localStorage.getItem(lsKey))
-                innerDoc.execCommand("insertHTML", false , localStorage.getItem(lsKey));
+            var htmlInsert  = false;
+            $('#collapseobj_quickreply').children().on('mouseenter', function (e) {
+                if(!htmlInsert && localStorage.getItem(lsKey)){
+                    innerDoc.execCommand("insertHTML", false , localStorage.getItem(lsKey));
+                    htmlInsert = true;
+                }
+            });
 
             //get element at position
             innerDoc.addEventListener('click',detectWhereCaretPointerAt(), false);
