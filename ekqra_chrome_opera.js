@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Elakiri Quick Reply Advanced
 // @namespace    https://github.com/skaveesh/EKQRA/
-// @version      1.2
+// @version      1.3
 // @description  Try to take over the world! nahh.. Just quick reply
 // @author       skaveesh
 // @run-at       document-idle
@@ -815,21 +815,22 @@ $(document).ready(function() {
 
             //saving to history before modifing
             history.save();
-            
-            if (localStoragePreset && innerTextArea.value === localStoragePreset && innerTextArea.value.indexOf("[/") !== -1){
+
+            var startPos = innerTextArea.selectionStart;
+            var endPos = innerTextArea.selectionEnd;
+
+            if (innerTextArea.value.substring(startPos,endPos).length == 0 && localStoragePreset && innerTextArea.value === localStoragePreset && innerTextArea.value.indexOf("[/") !== -1){
                 //if the textarea is not dirty and has a preset, add text inside the preset
                 var focusPosition = innerTextArea.value.indexOf("[/");
                 innerTextArea.value = innerTextArea.value.substring(0, focusPosition) + text + innerTextArea.value.substring(focusPosition, innerTextArea.value.length);
                 innerTextArea.focus();
                 innerTextArea.selectionEnd = focusPosition + text.length;
             }else if (innerTextArea.selectionStart || innerTextArea.selectionStart === 0) {
-                var startPos = innerTextArea.selectionStart;
-                var endPos = innerTextArea.selectionEnd;
                 innerTextArea.value = innerTextArea.value.substring(0, startPos) + text + innerTextArea.value.substring(endPos, innerTextArea.value.length);
                 innerTextArea.selectionStart = startPos + text.length;
                 innerTextArea.selectionEnd = startPos + text.length;
                 innerTextArea.focus();
-            } else {
+            }else {
                 innerTextArea.value += text;
                 innerTextArea.focus();
             }
@@ -839,23 +840,31 @@ $(document).ready(function() {
 
 
     function surroundSelection(textBefore, textAfter){
-        if (document.selection) {
+        var localStoragePreset = localStorage.getItem(lsKey);
 
+        //saving to history before modifing
+        history.save();
+
+        var startPos = innerTextArea.selectionStart;
+        var endPos = innerTextArea.selectionEnd;
+
+        if (document.selection) {
             innerTextArea.focus();
             document.selection.createRange().text = textBefore + document.selection.createRange().text + textAfter;
-
-
+        } else if(innerTextArea.value.substring(startPos,endPos).length == 0 && !document.selection && localStoragePreset && innerTextArea.value === localStoragePreset && innerTextArea.value.indexOf("[/") !== -1){
+            //if the textarea is not dirty and has a preset, add text inside the preset
+            var focusPosition = innerTextArea.value.indexOf("[/");
+            innerTextArea.value = innerTextArea.value.substring(0, focusPosition)+ textBefore + textAfter + innerTextArea.value.substring(focusPosition, innerTextArea.value.length);
+            innerTextArea.focus();
+            innerTextArea.selectionEnd = focusPosition + textBefore.length;
         } else if (innerTextArea.selectionStart || innerTextArea.selectionStart == '0') {
-
-            var startPos = innerTextArea.selectionStart;
-            var endPos = innerTextArea.selectionEnd;
             innerTextArea.value = innerTextArea.value.substring(0, startPos)+ textBefore + innerTextArea.value.substring(startPos, endPos)+ textAfter + innerTextArea.value.substring(endPos, innerTextArea.value.length);
             innerTextArea.focus();
             innerTextArea.selectionStart = startPos + textBefore.length;
             innerTextArea.selectionEnd = endPos + textBefore.length;
         }
 
-        //save changes to undo/redo history
+        //saving to history before modifing
         history.save();
     }
 
