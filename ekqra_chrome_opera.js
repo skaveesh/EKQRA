@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         Elakiri Quick Reply Advanced
 // @namespace    https://github.com/skaveesh/EKQRA/
-// @version      1.3
+// @version      1.4
 // @description  Try to take over the world! nahh.. Just quick reply
 // @author       skaveesh
 // @run-at       document-idle
-// @match        http://www.elakiri.com/forum/showthread.php?*=*
+// @match        www.elakiri.com/forum/showthread.php?*=*
 // @grant        none
 // @require      https://code.jquery.com/jquery-1.12.4.min.js
 // ==/UserScript==
