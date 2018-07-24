@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Elakiri Quick Reply Advanced with Color Palette
-// @version      1.0
+// @version      1.1
 // @description  Try to take over the world! nahh.. Just quick reply with color palette
 // @author       skaveesh
 // @run-at       document-idle
-// @match        http://www.elakiri.com/forum/showthread.php?*=*
+// @match        www.elakiri.com/forum/showthread.php?*=*
 // @grant        none
 // @require      https://code.jquery.com/jquery-1.12.4.min.js
 // @require      https://raw.githubusercontent.com/skaveesh/EKQRA/master/jscolor.js
