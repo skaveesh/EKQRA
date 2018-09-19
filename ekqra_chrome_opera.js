@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Elakiri Quick Reply Advanced
-// @namespace    https://github.com/skaveesh/EKQRA/
+// @namespace    http://tampermonkey.net/
 // @version      1.4
 // @description  Try to take over the world! nahh.. Just quick reply
 // @author       skaveesh
